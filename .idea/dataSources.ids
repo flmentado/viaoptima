@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - viaoptima@localhost" uuid="87393cbb-01a9-4e85-8642-42ab4bbf1c3a">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="viaoptima"/>
+    <table name="categorias" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="categoria" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTgn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTgn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="categorias_empresas_categoria_id_foreign" table="categorias_empresas" schema="" catalog="viaoptima" columns="categoria_id"/>
+      <exported-key name="categorias_profesionales_categoria_id_foreign" table="categorias_profesionales" schema="" catalog="viaoptima" columns="categoria_id"/>
+      <exported-key name="empresas_sector_id_foreign" table="empresas" schema="" catalog="viaoptima" columns="sector_id"/>
+      <exported-key name="empresas_servicio_id_foreign" table="empresas" schema="" catalog="viaoptima" columns="servicio_id"/>
+      <exported-key name="iniciativas_categoria_id_foreign" table="iniciativas" schema="" catalog="viaoptima" columns="categoria_id"/>
+    </table>
+    <table name="categorias_empresas" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="empresa_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="categoria_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mzcn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mzcn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="categorias_empresas_categoria_id_foreign" columns="categoria_id" ref-table="categorias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="categorias_empresas_empresa_id_foreign" columns="empresa_id" ref-table="empresas" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="categorias_empresas_categoria_id_foreign" unique="false" columns="categoria_id"/>
+      <index name="categorias_empresas_empresa_id_foreign" unique="false" columns="empresa_id"/>
+    </table>
+    <table name="categorias_profesionales" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="profesional_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="categoria_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mzkn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mzkn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="categorias_profesionales_categoria_id_foreign" columns="categoria_id" ref-table="categorias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="categorias_profesionales_profesional_id_foreign" columns="profesional_id" ref-table="profesionales" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="categorias_profesionales_categoria_id_foreign" unique="false" columns="categoria_id"/>
+      <index name="categorias_profesionales_profesional_id_foreign" unique="false" columns="profesional_id"/>
+    </table>
+    <table name="empresas" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="usuario_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="logo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="J2RlZmF1bHQucG5nJw=="/>
+      <column name="cif" sqlType="VARCHAR" precision="9" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="responsable" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="contacto" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pais_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="provincia_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="localidad_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="direccion" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cp" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="movil" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fax" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="web" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="anio_constitucion" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="num_trabajadores" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="sector_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="servicio_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="activo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MjEn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MjEn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="empresas_localidad_id_foreign" columns="localidad_id" ref-table="localidades" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="empresas_pais_id_foreign" columns="pais_id" ref-table="paises" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="empresas_provincia_id_foreign" columns="provincia_id" ref-table="provincias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="empresas_sector_id_foreign" columns="sector_id" ref-table="categorias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="empresas_servicio_id_foreign" columns="servicio_id" ref-table="categorias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="empresas_usuario_id_foreign" columns="usuario_id" ref-table="users" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="categorias_empresas_empresa_id_foreign" table="categorias_empresas" schema="" catalog="viaoptima" columns="empresa_id"/>
+      <exported-key name="proyectos_empresa_id_foreign" table="proyectos" schema="" catalog="viaoptima" columns="empresa_id"/>
+      <index name="empresas_localidad_id_foreign" unique="false" columns="localidad_id"/>
+      <index name="empresas_pais_id_foreign" unique="false" columns="pais_id"/>
+      <index name="empresas_provincia_id_foreign" unique="false" columns="provincia_id"/>
+      <index name="empresas_sector_id_foreign" unique="false" columns="sector_id"/>
+      <index name="empresas_servicio_id_foreign" unique="false" columns="servicio_id"/>
+      <index name="empresas_usuario_id_foreign" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="grupos" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="grupo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="logo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="activo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MzIn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MzIn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="grupos_profesionales_grupo_id_foreign" table="grupos_profesionales" schema="" catalog="viaoptima" columns="grupo_id"/>
+    </table>
+    <table name="grupos_profesionales" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="grupo_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="profesional_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MzIn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MzIn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="grupos_profesionales_grupo_id_foreign" columns="grupo_id" ref-table="grupos" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="grupos_profesionales_profesional_id_foreign" columns="profesional_id" ref-table="profesionales" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="grupos_profesionales_grupo_id_foreign" unique="false" columns="grupo_id"/>
+      <index name="grupos_profesionales_profesional_id_foreign" unique="false" columns="profesional_id"/>
+    </table>
+    <table name="iniciativas" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="iniciativa" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="necesidad_a_resolver" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="solucion" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="ambito_geografico" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="categoria_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="profesional_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="activo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MzQn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MzQn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="iniciativas_categoria_id_foreign" columns="categoria_id" ref-table="categorias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="iniciativas_profesional_id_foreign" columns="profesional_id" ref-table="profesionales" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="postulaciones_iniciativa_id_foreign" table="postulaciones" schema="" catalog="viaoptima" columns="iniciativa_id"/>
+      <index name="iniciativas_categoria_id_foreign" unique="false" columns="categoria_id"/>
+      <index name="iniciativas_profesional_id_foreign" unique="false" columns="profesional_id"/>
+    </table>
+    <table name="localidades" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="localidad" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTcn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTcn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="empresas_localidad_id_foreign" table="empresas" schema="" catalog="viaoptima" columns="localidad_id"/>
+      <exported-key name="profesionales_localidad_id_foreign" table="profesionales" schema="" catalog="viaoptima" columns="localidad_id"/>
+    </table>
+    <table name="migrations" schema="" catalog="viaoptima" type="TABLE">
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="paises" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="pais" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTcn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTcn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="empresas_pais_id_foreign" table="empresas" schema="" catalog="viaoptima" columns="pais_id"/>
+      <exported-key name="profesionales_pais_id_foreign" table="profesionales" schema="" catalog="viaoptima" columns="pais_id"/>
+    </table>
+    <table name="password_resets" schema="" catalog="viaoptima" type="TABLE">
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <index name="password_resets_email_index" unique="false" columns="email"/>
+      <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="postulaciones" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="proyecto_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="profesional_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="iniciativa_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6NDAn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6NDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="postulaciones_iniciativa_id_foreign" columns="iniciativa_id" ref-table="iniciativas" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="postulaciones_profesional_id_foreign" columns="profesional_id" ref-table="profesionales" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="postulaciones_proyecto_id_foreign" columns="proyecto_id" ref-table="proyectos" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="postulaciones_iniciativa_id_foreign" unique="false" columns="iniciativa_id"/>
+      <index name="postulaciones_profesional_id_foreign" unique="false" columns="profesional_id"/>
+      <index name="postulaciones_proyecto_id_foreign" unique="false" columns="proyecto_id"/>
+    </table>
+    <table name="profesionales" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="usuario_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="nif_cif" sqlType="VARCHAR" precision="9" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="apellido_1" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="apellido_2" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_nacimiento" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="pais_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="provincia_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="localidad_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="direccion" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cp" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="movil" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fax" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="web" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="formacion_academica" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="formacion_complementaria" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="habilidades" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="experiencia_profesional" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="formador" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="tutor" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="compartir_experiencia" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="activo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mjgn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mjgn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="profesionales_localidad_id_foreign" columns="localidad_id" ref-table="localidades" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="profesionales_pais_id_foreign" columns="pais_id" ref-table="paises" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="profesionales_provincia_id_foreign" columns="provincia_id" ref-table="provincias" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="profesionales_usuario_id_foreign" columns="usuario_id" ref-table="users" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="categorias_profesionales_profesional_id_foreign" table="categorias_profesionales" schema="" catalog="viaoptima" columns="profesional_id"/>
+      <exported-key name="grupos_profesionales_profesional_id_foreign" table="grupos_profesionales" schema="" catalog="viaoptima" columns="profesional_id"/>
+      <exported-key name="iniciativas_profesional_id_foreign" table="iniciativas" schema="" catalog="viaoptima" columns="profesional_id"/>
+      <exported-key name="postulaciones_profesional_id_foreign" table="postulaciones" schema="" catalog="viaoptima" columns="profesional_id"/>
+      <index name="profesionales_localidad_id_foreign" unique="false" columns="localidad_id"/>
+      <index name="profesionales_pais_id_foreign" unique="false" columns="pais_id"/>
+      <index name="profesionales_provincia_id_foreign" unique="false" columns="provincia_id"/>
+      <index name="profesionales_usuario_id_foreign" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="provincias" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="provincia" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTcn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTcn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="empresas_provincia_id_foreign" table="empresas" schema="" catalog="viaoptima" columns="provincia_id"/>
+      <exported-key name="profesionales_provincia_id_foreign" table="profesionales" schema="" catalog="viaoptima" columns="provincia_id"/>
+    </table>
+    <table name="proyectos" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="empresa_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="titulo" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="objetivo" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="fecha_inicio" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="fecha_final" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="estado" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="activo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mjcn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6Mjcn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="proyectos_empresa_id_foreign" columns="empresa_id" ref-table="empresas" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="postulaciones_proyecto_id_foreign" table="postulaciones" schema="" catalog="viaoptima" columns="proyecto_id"/>
+      <index name="proyectos_empresa_id_foreign" unique="false" columns="empresa_id"/>
+    </table>
+    <table name="roles" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="rol" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="peso" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTgn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTgn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="users_rol_id_foreign" table="users" schema="" catalog="viaoptima" columns="rol_id"/>
+    </table>
+    <table name="users" schema="" catalog="viaoptima" type="TABLE">
+      <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="usuario" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="foto" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="J2RlZmF1bHQucG5nJw=="/>
+      <column name="rol_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="resetear_password" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="confirmado" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="codigo_confirmar" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="activo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTgn"/>
+      <column name="update_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzIwMTUtMDQtMjUgMDk6MzY6MTgn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="users_rol_id_foreign" columns="rol_id" ref-table="roles" ref-schema="" ref-catalog="viaoptima" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="empresas_usuario_id_foreign" table="empresas" schema="" catalog="viaoptima" columns="usuario_id"/>
+      <exported-key name="profesionales_usuario_id_foreign" table="profesionales" schema="" catalog="viaoptima" columns="usuario_id"/>
+      <index name="users_email_unique" unique="true" columns="email"/>
+      <index name="users_usuario_unique" unique="true" columns="usuario"/>
+      <index name="users_rol_id_foreign" unique="false" columns="rol_id"/>
+    </table>
+  </data-source>
+</component>
